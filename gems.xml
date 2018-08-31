@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<gems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="gems.xsd">
+	<precious_gem gem_id="a1">
+		<name>Diamond</name>
+		<origin>USA</origin>
+		<visual_parameters faces="57">
+			<color>Colorless</color>
+			<clarity>98%</clarity>
+		</visual_parameters>
+		<weight measure="ct.">1.01</weight>
+		<price currency="USD">4000000</price>
+		<preciousness>Precious</preciousness>
+	</precious_gem>
+	<fake_gem gem_id="b1">
+		<name>Synthetic diamond</name>
+		<origin>China</origin>
+		<visual_parameters faces="57">
+			<color>Colorless</color>
+			<clarity>90%</clarity>
+		</visual_parameters>
+		<weight measure="ct.">1.01</weight>
+		<price currency="USD">200</price>
+		<method>Crystallization</method>
+		<creation_date>2017-06-08</creation_date>
+	</fake_gem>
+	<precious_gem gem_id="a2">
+		<name>Sapphire</name>
+		<origin>Ceylon</origin>
+		<visual_parameters faces="40">
+			<color>Blue</color>
+			<clarity>70%</clarity>
+		</visual_parameters>
+		<weight measure="ct.">2.99</weight>
+		<price currency="BYN">2400</price>
+		<preciousness>Precious</preciousness>
+	</precious_gem>
+	<precious_gem gem_id="a3">
+		<name>Emerald</name>
+		<origin>Colombia</origin>
+		<visual_parameters faces="8">
+			<color>Green</color>
+			<clarity>30%</clarity>
+		</visual_parameters>
+		<weight measure="ct.">8.51</weight>
+		<price currency="EUR">3500</price>
+		<preciousness>Precious</preciousness>
+	</precious_gem>
+	<precious_gem gem_id="a4">
+		<name>Quartz</name>
+		<origin>Brazil</origin>
+		<visual_parameters faces="70">
+			<color>Champagne</color>
+			<clarity>60%</clarity>
+		</visual_parameters>
+		<weight measure="ct.">9.00</weight>
+		<price currency="USD">90</price>
+		<preciousness>Semiprecious</preciousness>
+	</precious_gem>
+	<precious_gem gem_id="a5">
+		<name>Alexandrite</name>
+		<origin>Brazil</origin>
+		<visual_parameters faces="50">
+			<color>Purple</color>
+			<clarity>70%</clarity>
+		</visual_parameters>
+		<weight measure="ct.">0.99</weight>
+		<price currency="USD">17000</price>
+		<preciousness>Precious</preciousness>
+	</precious_gem>
+	<precious_gem gem_id="a6">
+		<name>Pearl</name>
+		<origin>Tahiti</origin>
+		<visual_parameters>
+			<color>Gray metallic</color>
+			<clarity>0%</clarity>
+		</visual_parameters>
+		<weight measure="ct.">5.01</weight>
+		<price currency="BYN">10000</price>
+		<preciousness>Precious</preciousness>
+	</precious_gem>
+	<precious_gem gem_id="a7">
+		<name>Garnet</name>
+		<origin>Tanzania</origin>
+		<visual_parameters faces="53">
+			<color>Champagne</color>
+			<clarity>60%</clarity>
+		</visual_parameters>
+		<weight measure="ct.">10.18</weight>
+		<price currency="EUR">1500</price>
+		<preciousness>Semiprecious</preciousness>
+	</precious_gem>
+	<precious_gem gem_id="a8">
+		<name>Ruby</name>
+		<origin>Mozambique</origin>
+		<visual_parameters faces="10">
+			<color>Pink</color>
+			<clarity>70%</clarity>
+		</visual_parameters>
+		<weight measure="ct.">7.31</weight>
+		<price currency="USD">28000</price>
+		<preciousness>Precious</preciousness>
+	</precious_gem>
+	<precious_gem gem_id="a9">
+		<name>Tourmaline</name>
+		<origin>Mozambique</origin>
+		<visual_parameters faces="100">
+			<color>Blue</color>
+			<clarity>50%</clarity>
+		</visual_parameters>
+		<weight measure="ct.">5.44</weight>
+		<price currency="USD">15000</price>
+		<preciousness>Precious</preciousness>
+	</precious_gem>
+	<precious_gem gem_id="a10">
+		<name>Aquamarine</name>
+		<origin>Brazil</origin>
+		<visual_parameters faces="100">
+			<color>Skyblue</color>
+			<clarity>70%</clarity>
+		</visual_parameters>
+		<weight measure="ct.">20.29</weight>
+		<price currency="BYN">10000</price>
+		<preciousness>Semiprecious</preciousness>
+	</precious_gem>
+	<fake_gem gem_id="b2">
+		<name>Synthetic ruby</name>
+		<origin>Russian Federation</origin>
+		<visual_parameters faces="10">
+			<color>Pink</color>
+			<clarity>70%</clarity>
+		</visual_parameters>
+		<weight measure="ct.">7.31</weight>
+		<price currency="USD">25</price>
+		<method>Wernel method</method>
+		<creation_date>2014-03-10</creation_date>
+	</fake_gem>
+	<fake_gem gem_id="b3">
+		<name>Synthetic emerald</name>
+		<origin>China</origin>
+		<visual_parameters faces="8">
+			<color>Green</color>
+			<clarity>30%</clarity>
+		</visual_parameters>
+		<weight measure="ct.">8.51</weight>
+		<price currency="USD">50</price>
+		<method>Hydrothermal</method>
+		<creation_date>2016-06-17</creation_date>
+	</fake_gem>
+	<fake_gem gem_id="b4">
+		<name>Synthetic quartz</name>
+		<origin>Japan</origin>
+		<visual_parameters faces="70">
+			<color>Champagne</color>
+			<clarity>60%</clarity>
+		</visual_parameters>
+		<weight measure="ct.">9.00</weight>
+		<price currency="USD">45</price>
+		<method>Molten solvent</method>
+		<creation_date>2016-12-21</creation_date>
+	</fake_gem>
+	<fake_gem gem_id="b5">
+		<name>Synthetic alexandrite</name>
+		<origin>USA</origin>
+		<visual_parameters faces="50">
+			<color>Purple</color>
+			<clarity>70%</clarity>
+		</visual_parameters>
+		<weight measure="ct.">0.99</weight>
+		<price currency="USD">30</price>
+		<method>Zone melting method</method>
+		<creation_date>2014-08-25</creation_date>
+	</fake_gem>
+	<fake_gem gem_id="b6">
+		<name>Synthetic garnet</name>
+		<origin>China</origin>
+		<visual_parameters faces="53">
+			<color>Champagne</color>
+			<clarity>60%</clarity>
+		</visual_parameters>
+		<weight measure="ct.">10.18</weight>
+		<price currency="EUR">55</price>
+		<method>Smoothie-fusion method</method>
+		<creation_date>2017-01-10</creation_date>
+	</fake_gem>
+	<fake_gem gem_id="b7">
+		<name>Synthetic tourmaline</name>
+		<origin>China</origin>
+		<visual_parameters faces="100">
+			<color>Blue</color>
+			<clarity>50%</clarity>
+		</visual_parameters>
+		<weight measure="ct.">5.44</weight>
+		<price currency="BYN">60</price>
+		<method>Czochralski method</method>
+		<creation_date>2015-04-29</creation_date>
+	</fake_gem>
+</gems>

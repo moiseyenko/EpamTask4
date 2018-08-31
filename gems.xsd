@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified">
+
+	<xs:element name="gem" abstract="true" type="gem_type" />
+	<xs:element name="precious_gem" substitutionGroup="gem"
+		type="precious_gem_type" />
+	<xs:element name="fake_gem" substitutionGroup="gem"
+		type="fake_gem_type" />
+
+	<xs:element name="gems">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="gem" minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="gem_type">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" />
+			<xs:element name="origin" type="xs:string" />
+			<xs:element name="visual_parameters"
+				type="visual_parameters_type" />
+			<xs:element name="weight" type="weight_type" />
+			<xs:element name="price" type="price_type" />
+		</xs:sequence>
+		<xs:attribute name="gem_id" type="xs:ID" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="visual_parameters_type">
+		<xs:sequence>
+			<xs:element name="color" type="color_type" />
+			<xs:element name="clarity" type="clarity_type" />
+		</xs:sequence>
+		<xs:attribute name="faces" type="xs:nonNegativeInteger" />
+	</xs:complexType>
+
+	<xs:simpleType name="color_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Colorless" />
+			<xs:enumeration value="Blue" />
+			<xs:enumeration value="Green" />
+			<xs:enumeration value="Champagne" />
+			<xs:enumeration value="Purple" />
+			<xs:enumeration value="Gray metallic" />
+			<xs:enumeration value="Pink" />
+			<xs:enumeration value="Skyblue" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="clarity_type">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[1-9]?[0-9]?%|100%" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="weight_type">
+		<xs:simpleContent>
+			<xs:extension base="xs:decimal">
+				<xs:attribute name="measure" type="xs:string"
+					fixed="ct." />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:complexType name="price_type">
+		<xs:simpleContent>
+			<xs:extension base="xs:decimal">
+				<xs:attribute name="currency" type="currency_type"
+					default="USD" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:simpleType name="currency_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="USD" />
+			<xs:enumeration value="EUR" />
+			<xs:enumeration value="BYN" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="precious_gem_type">
+		<xs:complexContent>
+			<xs:extension base="gem_type">
+				<xs:sequence>
+					<xs:element name="preciousness" type="preciousness_type" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="preciousness_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Precious" />
+			<xs:enumeration value="Semiprecious" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="fake_gem_type">
+		<xs:complexContent>
+			<xs:extension base="gem_type">
+				<xs:sequence>
+					<xs:element name="method" type="method_type" />
+					<xs:element name="creation_date" type="xs:date"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="method_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Crystallization" />
+			<xs:enumeration value="Wernel method" />
+			<xs:enumeration value="Hydrothermal" />
+			<xs:enumeration value="Molten solvent" />
+			<xs:enumeration value="Zone melting method" />
+			<xs:enumeration value="Smoothie-fusion method" />
+			<xs:enumeration value="Czochralski method" />
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>
