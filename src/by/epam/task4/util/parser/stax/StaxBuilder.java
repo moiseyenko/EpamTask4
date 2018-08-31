@@ -11,6 +11,9 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import by.epam.task4.entity.FakeGem;
 import by.epam.task4.entity.Gem;
 import by.epam.task4.entity.PreciousGem;
@@ -25,13 +28,15 @@ import by.epam.task4.util.type.GemType;
 import by.epam.task4.util.type.MethodType;
 import by.epam.task4.util.type.PreciousnessType;
 
-public class StaxBuilder extends AbstractGemBuilder{
+public class StaxBuilder extends AbstractGemBuilder {
+	private static final Logger LOG = LogManager.getLogger(StaxBuilder.class);
 	private XMLInputFactory inputFactory;
 
 	public StaxBuilder() {
 		inputFactory = XMLInputFactory.newInstance();
 	}
-	
+
+	// build set of gems from fileName
 	@Override
 	public void buildGemsSet(String fileName) {
 		XMLStreamReader reader;
@@ -53,15 +58,23 @@ public class StaxBuilder extends AbstractGemBuilder{
 				}
 			}
 		} catch (FileNotFoundException e) {
-			System.err.println("File " + fileName + " not found! " + e);
+			if (LOG.isErrorEnabled()) {
+				LOG.error("File {} not found! {}", fileName, e);
+			}
 		} catch (XMLStreamException e) {
-			System.err.println("StAX parsing error! " + e.getMessage());
+			if (LOG.isErrorEnabled()) {
+				System.out.println(e);
+				LOG.error("StAX parsing error! {}", e.getMessage());
+			}
 		} catch (IOException e) {
-			System.err.println("Impossible close file " + fileName + " : " + e);
+			if (LOG.isErrorEnabled()) {
+				LOG.error("Impossible close file {} : {}", fileName, e);
+			}
 		}
 
 	}
 
+	// build preciuos gem from reader;
 	private Gem buildPreciousGem(XMLStreamReader reader) throws XMLStreamException {
 		PreciousGem preciousGem = new PreciousGem();
 		preciousGem.setGemId(reader.getAttributeValue(null, GemType.GEM_ID.getValue()));
@@ -97,6 +110,8 @@ public class StaxBuilder extends AbstractGemBuilder{
 				case PRECIOUSNESS:
 					preciousGem.setPreciousness(PreciousnessType.fromValue(getXMLText(reader)));
 					break;
+				default:
+					throw new XMLStreamException("Unknown element in tag precious_gem");
 				}
 				break;
 			case XMLStreamConstants.END_ELEMENT:
@@ -110,6 +125,7 @@ public class StaxBuilder extends AbstractGemBuilder{
 		throw new XMLStreamException("Unknown element in tag precious_gem");
 	}
 
+	// build fake gem from reader;
 	private Gem buildFakeGem(XMLStreamReader reader) throws XMLStreamException {
 		FakeGem fakeGem = new FakeGem();
 		fakeGem.setGemId(reader.getAttributeValue(null, GemType.GEM_ID.getValue()));
@@ -151,8 +167,9 @@ public class StaxBuilder extends AbstractGemBuilder{
 					int month = (Integer.parseInt(splitDate[1]) - 1);
 					int days = Integer.parseInt(splitDate[2]);
 					fakeGem.setCreationDate(new GregorianCalendar(year, month, days));
-				default:
 					break;
+				default:
+					throw new XMLStreamException("Unknown element in tag fake_gem");
 				}
 				break;
 			case XMLStreamConstants.END_ELEMENT:
@@ -166,6 +183,7 @@ public class StaxBuilder extends AbstractGemBuilder{
 		throw new XMLStreamException("Unknown element in tag fake_gem");
 	}
 
+	// return text content from reader;
 	private String getXMLText(XMLStreamReader reader) throws XMLStreamException {
 		String text = "";
 		if (reader.hasNext()) {
@@ -175,6 +193,7 @@ public class StaxBuilder extends AbstractGemBuilder{
 		return text;
 	}
 
+	// build visual parameters from reader;
 	private VisualParameters buildVisualParameter(XMLStreamReader reader) throws XMLStreamException {
 		VisualParameters visualParameter = new VisualParameters();
 		String faces = reader.getAttributeValue(null, GemType.FACES.getValue());
@@ -194,6 +213,8 @@ public class StaxBuilder extends AbstractGemBuilder{
 				case CLARITY:
 					visualParameter.setClarity(getXMLText(reader));
 					break;
+				default:
+					throw new XMLStreamException("Unknown element in tag visual_parameters");
 				}
 				break;
 			case XMLStreamConstants.END_ELEMENT:

@@ -94,6 +94,6 @@ public class BuilderTest {
 
 	@DataProvider
 	public Object[][] dp() {
-		return new Object[][] { { "gemsTestValid.xml" } };
+		return new Object[][] { { "source/gemsTestValid.xml" } };
 	}
 }

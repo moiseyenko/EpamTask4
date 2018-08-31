@@ -9,6 +9,8 @@ public class GemBuilderFactory {
 	private enum ParserType{
 		SAX,STAX,DOM
 	}
+	
+	//creates a parser(builder) according to parserType;
 	public AbstractGemBuilder createStudentBuilder(String parserType) {
 		ParserType type = ParserType.valueOf(parserType.toUpperCase());
 		switch (type) {

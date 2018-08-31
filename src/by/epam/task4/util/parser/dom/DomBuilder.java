@@ -7,6 +7,8 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -27,6 +29,7 @@ import by.epam.task4.util.type.MethodType;
 import by.epam.task4.util.type.PreciousnessType;
 
 public class DomBuilder extends AbstractGemBuilder {
+	private static final Logger LOG = LogManager.getLogger(DomBuilder.class);
 	private DocumentBuilder docBuilder;
 	private PreciousGem preciousGem;
 	private FakeGem fakeGem;
@@ -38,10 +41,13 @@ public class DomBuilder extends AbstractGemBuilder {
 		try {
 			docBuilder = factory.newDocumentBuilder();
 		} catch (ParserConfigurationException e) {
-			System.err.println("DocumentBuilder creation exception" + e);
+			if (LOG.isErrorEnabled()) {
+				LOG.error("DocumentBuilder creation exception {}", e);
+			}
 		}
 	}
 
+	//build set of gems from fileName;
 	@Override
 	public void buildGemsSet(String fileName) {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -50,17 +56,24 @@ public class DomBuilder extends AbstractGemBuilder {
 			docBuilder = factory.newDocumentBuilder();
 			doc = docBuilder.parse(fileName);
 		} catch (ParserConfigurationException e) {
-			System.err.println("DocumentBuilder creation exception" + e);
+			if (LOG.isErrorEnabled()) {
+				LOG.error("DocumentBuilder creation exception {}", e);
+			}
 		}catch (SAXException  e) {
-			System.err.println("Parser exception" + e);
+			if (LOG.isErrorEnabled()) {
+				LOG.error("Parser exception {}", e);
+			}
 		}catch (IOException e) {
-			System.err.println("IO thread exception" + e);
+			if (LOG.isErrorEnabled()) {
+				LOG.error("IO thread exception {}", e);
+			}
 		}
 		Element root = doc.getDocumentElement();
 		parseElement(root);
 
 	}
 
+	//parse current element of dom tree;
 	private void parseElement(Node parent) {
 		NodeList elementList = parent.getChildNodes();
 		for (int i = 0; i < elementList.getLength(); i++) {

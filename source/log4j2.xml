@@ -2,7 +2,7 @@
 <Configuration status="Warn">
 	<Appenders>
 		<Console name="Console" target="SYSTEM_OUT">
-			<PatternLayout pattern="%msg%n" />
+			<PatternLayout pattern="%msg" />
 			<LevelRangeFilter minLevel="INFO" maxLevel="INFO" />
 		</Console>
 		<File name="FileDebug" fileName="logs/fileLog.log" append="false">

@@ -5,5 +5,5 @@ public interface GemConstant {
 	String SAX = "sax";
 	String DOM = "dom";
 	String STAX = "stax";
-	String FILE_PATH = "gems.xml";
+	String FILE_PATH = "source/gems.xml";
 }
