@@ -16,7 +16,7 @@
 						<option value="stax">StAX</option>
 				</select></td>
 			</tr>
-			<tr><td valign="top">Your file: <input type="file" name="file" size="20" accept=".xml"></td></tr>
+			<tr><td valign="top">Your file: <input type="text" name="file" size="20"></td></tr>
 			<tr>
 				<td valign="top"><input type="submit" value="SubmitInfo"></td>
 			</tr>
